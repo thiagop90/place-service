@@ -65,67 +65,71 @@ Para fazer as requisições HTTP abaixo, foi utilizada a ferramenta [httpie](htt
 
 - POST /places
 ```
-http POST :8080/places name="Place" state="State"
+http POST :8080/places name="Place" city="City" state="State"
 
-HTTP/1.1 200 OK
-Content-Length: 129
+HTTP/1.1 201 Created
+Content-Length: 149
 Content-Type: application/json
 
 {
-    "createdAt": "2023-04-20T19:00:07.241632",
+    "createdAt": "2025-05-26T21:33:20.22415",
     "name": "Place",
+    "city": "City"
     "slug": "place",
     "state": "State",
-    "updatedAt": "2023-04-20T19:00:07.241632"
+    "updatedAt": "2025-05-26T21:33:20.22415"
 }
 ```
 
 - GET /places/{id}
 ```
-http :8080/places/1
+http GET :8080/places/1
 HTTP/1.1 200 OK
-Content-Length: 129
+Content-Length: 143
 Content-Type: application/json
 
 {
-    "createdAt": "2023-06-07T14:45:39.693689",
+    "createdAt": "2025-05-26T21:33:20.22415",
     "name": "Place",
+    "city": "City"
     "slug": "place",
     "state": "State",
-    "updatedAt": "2023-06-07T14:45:39.693689"
+    "updatedAt": "2025-05-26T21:33:20.22415"
 } 
 ```
 
 - GET /places?name=?
 ```
-http :8080/places name==PLACE
+http GET :8080/places name==PLACE
 HTTP/1.1 200 OK
 Content-Type: application/json
 transfer-encoding: chunked
 
 [
     {
-        "createdAt": "2023-06-07T14:45:39.693689",
+        "createdAt": "2025-05-26T21:33:20.22415",
         "name": "Place",
+        "city": "City"
         "slug": "place",
         "state": "State",
-        "updatedAt": "2023-06-07T14:45:39.693689"
+        "updatedAt": "2025-05-26T21:33:20.22415"
     }
 ]
 ```
 
 - PATCH /places/{id}
 ```
-http PATCH :8080/places/1 name='New Name' state='New State'
+http PATCH :8080/places/1 name='New Name' city='New City' state='New State'
 HTTP/1.1 200 OK
-Content-Length: 142
+Content-Length: 144
 Content-Type: application/json
 
 {
-    "createdAt": "2023-06-07T14:45:39.693689",
+    "createdAt": "2025-05-26T21:33:20.22415",
     "name": "New Name",
+    "city": "New City"
     "slug": "new-name",
     "state": "New State",
-    "updatedAt": "2023-06-07T14:53:21.671129345"
+    "updatedAt": "2025-05-26T21:45:14.69592788"
 }
 ```
